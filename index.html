@@ -1,239 +1,465 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hon. Solomon Saigut Cherogony | Eldama Ravine 2027</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Hon. Solomon Saigut Cherogony | MP Eldama Ravine 2027–2032</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
+    }
+    .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    .slide-in { animation: slideIn 0.5s ease-out forwards; }
+    .live-indicator { animation: pulse-glow 2s infinite; }
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(22,163,74,0.3) 100%);
+    }
+    html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 80px; }
+  </style>
 </head>
-<body>
-  <header class="topbar">
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="index.html">
-          <div class="logo">SC</div>
-          <div class="title">
-            <b>Hon. Solomon Saigut Cherogony</b>
-            <span>Eldama Ravine • MP 2027</span>
-          </div>
+
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600 to-green-700 text-white flex items-center justify-center font-extrabold text-xl shadow-lg group-hover:shadow-xl transition-shadow">
+          S
+        </div>
+        <div class="leading-tight">
+          <div class="font-extrabold text-base md:text-lg">Solomon Saigut Cherogony</div>
+          <div class="text-xs text-slate-500">MP Eldama Ravine | 2027–2032</div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#home" class="hover:text-green-600 transition-colors">Home</a>
+        <a href="#about" class="hover:text-green-600 transition-colors">About</a>
+        <a href="#agenda" class="hover:text-green-600 transition-colors">Agenda</a>
+        <a href="#events" class="hover:text-green-600 transition-colors">Events</a>
+        <a href="#news" class="hover:text-green-600 transition-colors">News</a>
+        <a href="#resources" class="hover:text-green-600 transition-colors">Resources</a>
+        <a href="#contact" class="hover:text-green-600 transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#donate"
+           class="hidden sm:inline-flex px-6 py-2.5 rounded-lg bg-gradient-to-r from-green-600 to-green-700 text-white text-sm font-bold hover:from-green-700 hover:to-green-800 shadow-md hover:shadow-lg transition-all">
+          Donate Now
         </a>
+        <button id="menuBtn" class="lg:hidden px-4 py-2 border-2 border-slate-300 rounded-lg text-sm font-semibold hover:bg-slate-100 transition-colors">
+          Menu
+        </button>
+      </div>
+    </div>
 
-        <nav class="menu">
-          <a class="active" href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="#volunteer">Volunteer</a>
-          <a href="#donate">Donate</a>
-		  <a href="staff/login.html" style="font-weight:800;color:#0b5d1e">
-            Staff Portal
-		  </a>
-        </nav>
-
-        <a class="btn primary" href="#volunteer">Join Movement</a>
+    <div id="mobileMenu" class="lg:hidden hidden border-t bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-4 grid gap-3 text-sm font-semibold">
+        <a href="#home" class="py-2 hover:text-green-600">Home</a>
+        <a href="#about" class="py-2 hover:text-green-600">About</a>
+        <a href="#agenda" class="py-2 hover:text-green-600">Agenda</a>
+        <a href="#events" class="py-2 hover:text-green-600">Events</a>
+        <a href="#news" class="py-2 hover:text-green-600">News</a>
+        <a href="#resources" class="py-2 hover:text-green-600">Resources</a>
+        <a href="#contact" class="py-2 hover:text-green-600">Contact</a>
+        <a href="#volunteer" class="py-2 hover:text-green-600">Volunteer</a>
+        <a href="#donate" class="py-2 text-green-600 font-bold">Donate</a>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero" id="home">
-      <div class="heroGrid">
-        <div>
-          <div class="kicker">Member of Parliament – Eldama Ravine Constituency (2027)</div>
-          <h1>Taking Ravine to the World — Bringing the World to Ravine</h1>
-          <p class="sub">
-            Prepared, inclusive, and people-centered leadership built on integrity, service delivery,
-            and practical solutions for Eldama Ravine.
+  <!-- HERO -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="h-[400px] md:h-[500px] bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1600&q=60'); background-color:#0f172a;"></div>
+    <div class="absolute inset-0 hero-gradient"></div>
+    
+    <div class="absolute inset-0 flex items-center">
+      <div class="max-w-7xl mx-auto px-4 w-full">
+        <div class="max-w-3xl fade-in-up">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
+            <span class="w-2 h-2 rounded-full bg-green-400 live-indicator"></span>
+            <span class="text-sm font-semibold text-white">2027–2032 Campaign</span>
+          </div>
+          
+          <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+            MP Eldama Ravine <span class="gradient-text text-white">Agenda</span>
+          </h1>
+          
+          <p class="text-lg md:text-xl text-white/90 leading-relaxed mb-8">
+            A clear plan built on development, accountability, and people-first service.
           </p>
-          <div class="motto">HON. SOLOMON SAIGUT CHEROGONY</div>
 
-          <div class="heroActions">
-            <a class="btn primary" href="about.html">Read Full Profile</a>
-            <a class="btn ghost" href="#donate">Support the Campaign</a>
-            <a class="btn ghost" href="#news">News</a>
+          <div class="flex flex-wrap gap-4">
+            <a href="#agenda" class="px-8 py-3.5 rounded-xl bg-white text-slate-900 font-bold text-sm hover:bg-slate-100 shadow-lg hover:shadow-xl transition-all">
+              View Full Agenda
+            </a>
+            <a href="#volunteer" class="px-8 py-3.5 rounded-xl border-2 border-white/70 text-white font-bold text-sm hover:bg-white/10 backdrop-blur-sm transition-all">
+              Become a Volunteer
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-7xl mx-auto px-4 py-16">
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="mb-20 slide-in">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-bold mb-4">
+          About Solomon
+        </div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Leadership You Can Trust</h2>
+        <div class="h-1 w-24 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full mb-6"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
+          <h3 class="text-2xl font-bold mb-4">Hon. Solomon Saigut Cherogony</h3>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            A dedicated leader with proven experience in community development, public service, and advocacy for the people of Eldama Ravine.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            With a strong background in grassroots engagement and a commitment to transparent governance, Solomon brings a fresh perspective focused on tangible results and sustainable development.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-6">
+            <span class="px-4 py-2 rounded-lg bg-green-50 text-green-700 text-sm font-semibold">Community Leader</span>
+            <span class="px-4 py-2 rounded-lg bg-green-50 text-green-700 text-sm font-semibold">Development Advocate</span>
+            <span class="px-4 py-2 rounded-lg bg-green-50 text-green-700 text-sm font-semibold">UDA Member</span>
           </div>
         </div>
 
-        <div class="card pad">
-          <div class="badge">Quick Info</div>
-          <div style="height:10px"></div>
-          <div class="quick">
-            <div class="item">
-              <b>Seat</b>
-              <span>Eldama Ravine Constituency</span>
+        <div class="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-8 text-white shadow-xl">
+          <h3 class="text-2xl font-bold mb-6">Our Mission</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
+              <div>
+                <div class="font-bold mb-1">Transparent Leadership</div>
+                <div class="text-sm text-white/90">Accountable governance with regular community updates</div>
+              </div>
             </div>
-            <div class="item">
-              <b>Focus</b>
-              <span>Health • Education • Jobs • Peace</span>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
+              <div>
+                <div class="font-bold mb-1">Infrastructure Development</div>
+                <div class="text-sm text-white/90">Quality roads,Tech Intergration,healthcare, and essential services</div>
+              </div>
             </div>
-            <div class="item">
-              <b>Plan</b>
-              <span>2027–2032 Development Agenda</span>
-            </div>
-            <div class="item">
-              <b>Volunteer</b>
-              <span>Join your ward team</span>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0 mt-1">✓</div>
+              <div>
+                <div class="font-bold mb-1">Economic Empowerment</div>
+                <div class="text-sm text-white/90">Jobs, youth opportunities, and agricultural support</div>
+              </div>
             </div>
           </div>
-          <div style="height:12px"></div>
-          <small>
-            This site is the official information portal for Hon. Solomon Saigut Cherogony.
-          </small>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT (HOME SHORT) -->
-    <section class="section" id="aboutHome">
-      <h2>About Hon. Solomon</h2>
-      <p class="lead">
-        Solomon Saigut Cherogony is a community-focused leader from Eldama Ravine (Benonin), with strong
-        experience in economics, finance, and development planning—shaped by professional exposure in
-        Romania, South Africa, DR Congo, and Chile.
-      </p>
-
-      <div class="grid3">
-        <div class="card feature">
-          <h3>Public Service Leadership</h3>
-          <ul>
-            <li>Board Chair, Eldama Ravine Sub-County Hospital</li>
-            <li>Strengthened governance and financial discipline</li>
-            <li>Improved staff morale and service delivery</li>
-          </ul>
-          <div class="muted">Leadership that delivers, not just talks.</div>
+    <!-- QUICK CARDS -->
+    <section class="grid md:grid-cols-3 gap-6 mb-20">
+      <a href="#agenda" class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 group">
+        <div class="h-48 bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
+          <div class="text-6xl">🎯</div>
         </div>
-
-        <div class="card feature">
-          <h3>Education Sector Support</h3>
-          <ul>
-            <li>Served on multiple school boards in Baringo</li>
-            <li>Prioritized essentials under limited budgets</li>
-            <li>Built modern sanitation units at Koibatek Primary</li>
-          </ul>
-          <div class="muted">Schools first. Children first.</div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-2 group-hover:text-green-600 transition-colors">Agenda Pillars</h3>
+          <p class="text-sm text-slate-600 mb-4">
+            Roads, health, youth & jobs, agriculture, and accountable leadership.
+          </p>
+          <span class="inline-flex items-center gap-2 text-sm font-bold text-green-600">
+            Read more
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </span>
         </div>
+      </a>
 
-        <div class="card feature">
-          <h3>Peace & Community</h3>
-          <ul>
-            <li>Conflict resolution and community dialogue</li>
-            <li>Mentorship for youth studying abroad</li>
-            <li>Employment creation through local ventures</li>
-          </ul>
-          <div class="muted">Development thrives where peace exists.</div>
+      <a href="#events" class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 group">
+        <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
+          <div class="text-6xl">📅</div>
         </div>
-      </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-2 group-hover:text-green-600 transition-colors">Events</h3>
+          <p class="text-sm text-slate-600 mb-4">
+            View upcoming meetings, tours, and community engagements.
+          </p>
+          <span class="inline-flex items-center gap-2 text-sm font-bold text-green-600">
+            See events
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </span>
+        </div>
+      </a>
 
-      <div style="height:12px"></div>
-      <a class="btn primary" href="about.html">Read full profile →</a>
+      <a href="#news" class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 group">
+        <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center">
+          <div class="text-6xl">📰</div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-2 group-hover:text-green-600 transition-colors">News & Updates</h3>
+          <p class="text-sm text-slate-600 mb-4">
+            Official updates, statements, and verified announcements.
+          </p>
+          <span class="inline-flex items-center gap-2 text-sm font-bold text-green-600">
+            Read updates
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </span>
+        </div>
+      </a>
     </section>
 
-    <!-- NEWS -->
-    <section class="section" id="news">
-      <h2>News & Updates</h2>
-      <p class="lead">Official campaign updates will appear here.</p>
-
-      <div class="card pad">
-        <b>UDA Aspirants Forum – State House Meeting</b>
-        <p style="margin:8px 0; color:#374151; line-height:1.6">
-          Solomon has completed the KES 5,000 registration payment and will attend the UDA aspirants meeting at
-          State House, Nairobi on 4th February 2026.
+    <!-- AGENDA SECTION -->
+    <section id="agenda" class="mb-20">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-bold mb-4">
+          2027–2032 Plan
+        </div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Development Agenda</h2>
+        <div class="h-1 w-24 bg-gradient-to-r from-green-600 to-green-400 mx-auto rounded-full mb-6"></div>
+        <p class="text-slate-600 max-w-3xl mx-auto">
+          A comprehensive roadmap for sustainable development, economic growth, and improved quality of life for all residents of Eldama Ravine.
         </p>
-        <small>Update posted: January 2026</small>
       </div>
-    </section>
 
-    <!-- DONATION -->
-    <section class="section" id="donate">
-      <h2>Support the Campaign</h2>
-      <p class="lead">
-        Your support helps us organize, mobilize volunteers, and reach every ward with a clear development agenda.
-      </p>
-
-      <div class="split">
-        <div class="card pad">
-          <b>M-PESA Paybill (Donations)</b>
-          <p style="color:#374151; line-height:1.6; margin:10px 0">
-            Paybill: <b>[INSERT PAYBILL]</b><br/>
-            Account: <b>SOLOMON2027</b><br/>
-            Amount: Any
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
+          <div class="text-4xl mb-4">🛣️</div>
+          <h3 class="text-2xl font-bold mb-3">1. Roads & Infrastructure</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Upgrading critical road networks across all wards, improving connectivity, and ensuring year-round accessibility for farmers, businesses, and essential services.
           </p>
-          <small>Note: Replace the Paybill placeholder with the official campaign Paybill.</small>
         </div>
 
-        <div class="card pad">
-          <b>Transparency</b>
-          <p style="color:#374151; line-height:1.6; margin:10px 0">
-            Donations are used strictly for campaign activities and logistics. We will publish periodic summaries
-            for accountability.
+        <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
+          <div class="text-4xl mb-4">🏥</div>
+          <h3 class="text-2xl font-bold mb-3">2. Health & Hospitals</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Ensuring consistent medicine availability, improving staffing levels, maintaining cleanliness standards, and upgrading healthcare facilities to serve our community better.
           </p>
-          <small>For receipts and inquiries: [INSERT EMAIL/PHONE]</small>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
+          <div class="text-4xl mb-4">💼</div>
+          <h3 class="text-2xl font-bold mb-3">3. Youth & Jobs</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Creating & Exploring Realistic employment opportunities through skills training, supporting SMEs, promoting digital opportunities, and investing in sports and youth development programs.
+          </p>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
+          <div class="text-4xl mb-4">🌾</div>
+          <h3 class="text-2xl font-bold mb-3">4. Agriculture & Markets</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Supporting value addition initiatives, providing farmer resources, improving market access, and strengthening agricultural infrastructure for sustainable growth.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 text-white shadow-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="text-4xl">🚀</div>
+          <h3 class="text-2xl font-bold">Second Term Vision (2032–2037)</h3>
+        </div>
+        <p class="text-white/90 leading-relaxed">
+          Building on first-term achievements to establish economic zones, attract investment, enhance education infrastructure, develop tourism potential, and position Eldama Ravine as a model Technological constituency for sustainable development.
+        </p>
+      </div>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section id="events" class="mb-20">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-bold mb-4">
+          Campaign Planned Events
+        </div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Upcoming & Previous Events</h2>
+        <div class="h-1 w-24 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+          <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-white">
+            <div class="text-center">
+              <div class="text-4xl font-bold">04</div>
+              <div class="text-sm">FEB 2026</div>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="text-xs text-green-600 font-bold mb-2">UPCOMING EVENTS</div>
+            <h3 class="font-bold text-lg mb-2">UDA Aspirants Forum</h3>
+            <p class="text-sm text-slate-600 mb-3">State House, Nairobi - Official UDA meeting for all registered aspirants.</p>
+            <div class="text-xs text-slate-400">📍 State House, Nairobi</div>
+          </div>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+          <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
+            <div class="text-6xl">🎤</div>
+          </div>
+          <div class="p-6">
+            <div class="text-xs text-slate-400 font-bold mb-2">PAST EVENT</div>
+            <h3 class="font-bold text-lg mb-2">Community Meeting</h3>
+            <p class="text-sm text-slate-600 mb-3">Ward listening session discussing healthcare priorities and road infrastructure needs.</p>
+            <div class="text-xs text-slate-400">📍 Local Community Hall</div>
+          </div>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+          <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center">
+            <div class="text-6xl">👥</div>
+          </div>
+          <div class="p-6">
+            <div class="text-xs text-slate-400 font-bold mb-2">PAST EVENT</div>
+            <h3 class="font-bold text-lg mb-2">Youth Engagement</h3>
+            <p class="text-sm text-slate-600 mb-3">Interactive session with young leaders discussing employment and skills development.</p>
+            <div class="text-xs text-slate-400">📍 Youth Center</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- VOLUNTEER -->
-    <section class="section" id="volunteer">
-      <h2>Volunteer Registration</h2>
-      <p class="lead">
-        Join the movement. Register below and an admin will connect you to your ward team.
-      </p>
+    <!-- NEWS SECTION -->
+    <section id="news" class="mb-20">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-bold mb-4">
+          Latest Trending News
+        </div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Official Latest Updates</h2>
+        <div class="h-1 w-24 bg-gradient-to-r from-purple-600 to-purple-400 mx-auto rounded-full"></div>
+      </div>
 
-      <div class="card pad">
-        <form onsubmit="submitVolunteer(event)">
-          <div class="formRow">
-            <div>
-              <label>Full Name</label>
-              <input name="name" required placeholder="Your name" />
-            </div>
-            <div>
-              <label>Phone Number</label>
-              <input name="phone" required placeholder="+2547..." />
-            </div>
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div class="card-hover bg-white rounded-2xl p-8 border-2 border-green-200 shadow-lg">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold mb-4">
+            LATEST
           </div>
+          <h3 class="font-bold text-2xl mb-3">UDA 4th Feb Forum Confirmed</h3>
+          <p class="text-slate-600 mb-4">
+            MP Registration fee paid. Attendance confirmed for 4th February 2026 UDA Aspirants Forum at State House, Nairobi.
+          </p>
+          <div class="text-xs text-slate-400 mb-4">23 Jan 2026 • Campaign Update</div>
+          <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-green-600 hover:text-green-700">
+            Read full update
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
 
-          <div style="height:10px"></div>
-
-          <div class="formRow">
-            <div>
-              <label>Region / Ward</label>
-              <input name="region" required placeholder="Ward / location" />
-            </div>
-            <div>
-              <label>Role Preference</label>
-              <select name="role" required>
-                <option value="">Select…</option>
-                <option>Mobilization</option>
-                <option>Polling Station Agent</option>
-                <option>Youth Wing</option>
-                <option>Women Wing</option>
-                <option>Communications</option>
-                <option>Logistics</option>
-              </select>
-            </div>
+        <div class="card-hover bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold mb-4">
+            STATEMENT
           </div>
+          <h3 class="font-bold text-2xl mb-3">Health Pillar Brief</h3>
+          <p class="text-slate-600 mb-4">
+            Outlining priorities in Proper healthcare delivery and facility support across Eldama Ravine for 2027–2032.
+          </p>
+          <div class="text-xs text-slate-400 mb-4">22 Jan 2026 • Official Latest Statement</div>
+          <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-green-600 hover:text-green-700">
+            Read more
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
 
-          <div style="height:10px"></div>
-
-          <div>
-            <label>Message (optional)</label>
-            <textarea name="message" placeholder="Any message or skills you have…"></textarea>
-          </div>
-
-          <div style="height:12px"></div>
-          <button class="btn primary" type="submit">Submit Volunteer Request</button>
-          <div style="height:8px"></div>
-          <small>
-            Privacy: We only use your details for campaign coordination. (In Phase 1, this form will submit to a secure database.)
-          </small>
-        </form>
+      <div class="text-center">
+        <a href="#" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-purple-600 text-white font-bold hover:bg-purple-700 shadow-lg transition-all">
+          View All Latest News & Updates
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
       </div>
     </section>
 
-    <footer class="footer">
-      © 2026 • Hon. Solomon Saigut Cherogony • Eldama Ravine MP 2027
-    </footer>
-  </main>
+    <!-- RESOURCES SECTION -->
+    <section id="resources" class="mb-20">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-bold mb-4">
+          Resource Center
+        </div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Campaign Resources</h2>
+        <div class="h-1 w-24 bg-gradient-to-r from-orange-600 to-orange-400 mx-auto rounded-full"></div>
+      </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200 shadow-lg text-center">
+          <div class="text-5xl mb-4">📄</div>
+          <h3 class="font-bold text-lg mb-2">Policy Documents</h3>
+          <p class="text-sm text-slate-600 mb-4">Download detailed agenda and policy briefs</p>
+          <button class="px-6 py-2 rounded-lg bg-slate-100 text-slate-700 font-semibold text-sm hover:bg-slate-200 transition-colors">
+            Download
+          </button>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200 shadow-lg text-center">
+          <div class="text-5xl mb-4">📊</div>
+          <h3 class="font-bold text-lg mb-2">Reports & Consituency Data</h3>
+          <p class="text-sm text-slate-600 mb-4">Access constituency data and progress reports</p>
+          <button class="px-6 py-2 rounded-lg bg-slate-100 text-slate-700 font-semibold text-sm hover:bg-slate-200 transition-colors">
+            View Reports
+          </button>
+        </div>
+
+        <div class="card-hover bg-white rounded-2xl p-6 border border-slate-200 shadow-lg text-center">
+          <div class="text-5xl mb-4">🎨</div>
+          <h3 class="font-bold text-lg mb-2">Campaign Materials</h3>
+          <p class="text-sm text-slate-600 mb-4">Logos, graphics, and promotional content</p>
+          <button class="px-6 py-2 rounded-lg bg-slate-100 text-slate-700 font-semibold text-sm hover:bg-slate-200 transition-colors">
+            Access Media
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOLUNTEER & DONATE -->
+    <section class="grid md:grid-cols-2 gap-8 mb-20">
+      <!-- VOLUNTEER -->
+      <div id="volunteer" class="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl">
+        <div class="text-4xl mb-4">🤝</div>
+        <h2 class="text-3xl font-extrabold mb-3">Join Team Solo </h2>
+        <p class="text-slate-600 mb-6">Become a volunteer and help build a better Eldama Ravine.</p>
+
+        <form class="space-y-4">
+          <input 
+            class="w-full border-2 border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-green-500 focus:ring-4 focus:ring-green-100 transition-all" 
+            placeholder="Full Name" 
+            required 
+          />
+          <input
